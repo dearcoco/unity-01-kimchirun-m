@@ -19,7 +19,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded) {
             isGrounded = false;
-            animator.SetInteger("state", 1); 
+            animator.SetInteger("state", 1);
             rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
         }
     }
@@ -27,11 +27,12 @@ public class NewMonoBehaviourScript : MonoBehaviour
     void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.name == "Platform") {
-            // if (!isGrounded) {
-            //     animator.SetInteger("State", 2); // Reset to idle state
-            // }
             animator.SetInteger("state", 2);
             isGrounded = true;
         }
     }
+    
+                // if (!isGrounded) {
+            //     animator.SetInteger("State", 2); // Reset to idle state
+            // }
 }
